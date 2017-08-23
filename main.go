@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/he236555699/interfaceTest/pattern"
+	"github.com/he236555699/godp/pattern"
 )
 
 func testAbstractFactory() {
@@ -26,7 +26,22 @@ func testSimpleFactory() {
 	fmt.Println(operator.Operater(7, 2))
 }
 
+func testFactoryMehtod() {
+	aof := new(pattern.AddOperationFactory)
+	operation := aof.CreateOperation()
+	operation.SetA(5)
+	operation.SetB(3)
+	fmt.Println(operation.GetResult())
+
+	sof := new(pattern.SubOperationFactory)
+	operation = sof.CreateOperation()
+	operation.SetA(5)
+	operation.SetA(3)
+	fmt.Println(operation.GetResult())
+}
+
 func main() {
 	//testAbstractFactory()
-	testSimpleFactory()
+	//testSimpleFactory()
+	testFactoryMehtod()
 }
